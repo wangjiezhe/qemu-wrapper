@@ -1,5 +1,4 @@
 [build]
 rustflags = [
   "-C", "target-feature=+crt-static",
-  "-C", "link-args=-s",
 ]
