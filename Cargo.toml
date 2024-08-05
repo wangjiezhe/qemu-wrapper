@@ -3,6 +3,14 @@ name = "qemu-wrapper"
 version = "0.1.0"
 edition = "2021"
 
+[dependencies]
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = 'abort'
+opt-level = 3
+
 [[bin]]
 name = "qemu-wrapper-n64"
 path = "src/qemu-wrapper-n64.rs"
