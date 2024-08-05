@@ -1,0 +1,32 @@
+[package]
+name = "qemu-wrapper"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "qemu-wrapper-n64"
+path = "src/qemu-wrapper-n64.rs"
+
+[[bin]]
+name = "qemu-wrapper-n32"
+path = "src/qemu-wrapper-n32.rs"
+
+[[bin]]
+name = "qemu-wrapper-o32"
+path = "src/qemu-wrapper-o32.rs"
+
+[[bin]]
+name = "qemu-wrapper-base-n64"
+path = "src/qemu-wrapper-base-n64.rs"
+
+[[bin]]
+name = "qemu-wrapper-base-n32"
+path = "src/qemu-wrapper-base-n32.rs"
+
+[[bin]]
+name = "qemu-wrapper-loongson-n64"
+path = "src/qemu-wrapper-loongson-n64.rs"
+
+[[bin]]
+name = "qemu-wrapper-loongson-n32"
+path = "src/qemu-wrapper-loongson-n32.rs"
