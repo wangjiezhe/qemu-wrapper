@@ -138,6 +138,7 @@ umount_src_linux() {
   if [ ! -L ${ROOT}/usr/src/linux ]; then
     ebegin "Unmounting /usr/src/linux"
     umount ${ROOT}/usr/src/linux
+    rmdir ${ROOT}/usr/src/linux
     eend 0
   fi
 }
