@@ -7,8 +7,8 @@ int main(int argc, char **argv, char **envp) {
     newargv[0] = argv[0];
     newargv[1] = "-cpu";
     newargv[2] = "Loongson-2F";
-	newargv[3] = "-L";
-	newargv[4] = "/usr/mips64el-softfloat-linux-gnuabi64";
+    newargv[3] = "-L";
+    newargv[4] = "/usr/mips64el-softfloat-linux-gnuabi64";
 
     memcpy(&newargv[5], &argv[1], sizeof(*argv) * (argc - 1));
     newargv[argc + 4] = NULL;
