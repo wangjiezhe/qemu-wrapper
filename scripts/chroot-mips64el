@@ -112,8 +112,9 @@ umount_filesystem() {
 
 mount_portage() {
   ebegin "Mounting portage directories"
-  mkdir -pv ${ROOT}/var/db/repos/{gentoo,local}
+  mkdir -pv ${ROOT}/var/db/repos/{gentoo,gentoo-zh,local}
   mount -o bind /var/db/repos/gentoo ${ROOT}/var/db/repos/gentoo
+  mount -o bind /var/db/repos/gentoo-zh ${ROOT}/var/db/repos/gentoo-zh
   mount -o bind /var/db/repos/local ${ROOT}/var/db/repos/local
   eend $?
 }
@@ -122,6 +123,7 @@ umount_portage() {
   ebegin "Unmounting portage directories"
   umount ${ROOT}/var/db/repos/local
   umount ${ROOT}/var/db/repos/gentoo
+  umount ${ROOT}/var/db/repos/gentoo-zh
   eend 0
 }
 
