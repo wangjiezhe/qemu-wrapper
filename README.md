@@ -19,5 +19,5 @@ Remember to configure binfmt before cross-compiling:
 echo ':qemu-mips64el:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08\x00:\xff\xff\xff\xff\xff\xff\xff\x00\x00\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/local/bin/qemu-wrapper-hard-n64:OC' > /proc/sys/fs/binfmt_misc/register
 ```
 
-The last two are used to run binary file directly.
+The last two are used to run binary file directly to simulate command running on Lemote Yeeloong Netbook.
 
