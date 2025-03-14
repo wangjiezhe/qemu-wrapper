@@ -5,9 +5,7 @@ Legacy C code are originally copied from [Compiling with QEMU user chroot](https
 
 - qemu-wrapper-${ABI}: `qemu-mips*el -cpu Loongson-2F`
 - qemu-wrapper-hard-\${ABI}: `qemu-mips*el -L /usr/mips64el-unknown-linux-gnuabi${ABI}`
-- qemu-wrapper-soft-\${ABI}: `qemu-mips*el -L /usr/mips64el-softfloat-linux-gnuabi${ABI}`
 - qmeu-wrapper-hard-loongson-\${ABI}: `qemu-mips*el -cpu Loongson-2F -L /usr/mips64el-unknown-linux-gnuabi${ABI}`
-- qmeu-wrapper-soft-loongson-\${ABI}: `qemu-mips*el -cpu Loongson-2F -L /usr/mips64el-softfloat-linux-gnuabi${ABI}`
 
 The first one is used with chroot, as shown in [chroot-mips64el](scripts/chroot-mips64el).
 
