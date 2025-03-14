@@ -6,8 +6,8 @@ fn main() {
     let args: Vec<String> = env::args().skip(1).collect();
 
     Command::new("/usr/bin/qemu-mips64el")
-        .arg("-cpu")
-        .arg("Loongson-2F")
+        .arg("-L")
+        .arg("/usr/mips64el-unknown-linux-gnuabi64")
         .args(args)
         .status()
         .expect("Failed to execute qemu-mips64el");
