@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(QemuWrapper)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -static -O3 -s")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -static-pie -O3 -s")
 
 file(GLOB_RECURSE SOURCES "qemu-*.c")
 
