@@ -8,6 +8,8 @@ fn main() {
     Command::new("/usr/bin/qemu-mips64el")
         .arg("-L")
         .arg("/usr/mips64el-unknown-linux-gnuabi64")
+        .arg("-E")
+        .arg("LD_LIBRARY_PATH=/usr/lib/gcc/mips64el-unknown-linux-gnuabi64/14/")
         .args(args)
         .status()
         .expect("Failed to execute qemu-mips64el");

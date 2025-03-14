@@ -1,0 +1,11 @@
+BasedOnStyle: Google
+
+TabWidth: 4
+IndentWidth: 4
+UseTab: Never
+AccessModifierOffset: -4
+InsertNewlineAtEOF: true
+AllowShortLoopsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: Never
+DerivePointerAlignment: false
+SeparateDefinitionBlocks: Always
