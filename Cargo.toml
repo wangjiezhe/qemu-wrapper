@@ -17,21 +17,9 @@ name = "qemu-wrapper-n64"
 path = "src/qemu-wrapper-n64.rs"
 
 [[bin]]
-name = "qemu-wrapper-n32"
-path = "src/qemu-wrapper-n32.rs"
-
-[[bin]]
 name = "qemu-wrapper-hard-n64"
 path = "src/qemu-wrapper-hard-n64.rs"
 
 [[bin]]
-name = "qemu-wrapper-hard-n32"
-path = "src/qemu-wrapper-hard-n32.rs"
-
-[[bin]]
 name = "qemu-wrapper-hard-loongson-n64"
 path = "src/qemu-wrapper-hard-loongson-n64.rs"
-
-[[bin]]
-name = "qemu-wrapper-hard-loongson-n32"
-path = "src/qemu-wrapper-hard-loongson-n32.rs"

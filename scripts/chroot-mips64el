@@ -41,17 +41,13 @@ register_qemu_wrapper() {
 	ebegin "Registering qemu-wrapper binaries  (flags: OC)"
 	[ -f "/proc/sys/fs/binfmt_misc/qemu-mips64el" ] \
 		&& echo '-1' > /proc/sys/fs/binfmt_misc/qemu-mips64el
-	[ -f "/proc/sys/fs/binfmt_misc/qemu-mipsn32el" ] \
-		&& echo '-1' > /proc/sys/fs/binfmt_misc/qemu-mipsn32el
 	echo ':qemu-mips64el:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08\x00:\xff\xff\xff\xff\xff\xff\xff\x00\x00\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/local/bin/qemu-wrapper-n64:OC' > /proc/sys/fs/binfmt_misc/register
-	echo ':qemu-mipsn32el:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x20\x00\x00\x00:\xff\xff\xff\xff\xff\xff\xff\x00\x00\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x20\x00\x00\x00:/usr/local/bin/qemu-wrapper-n32:OC' > /proc/sys/fs/binfmt_misc/register
 	eend $?
 }
 
 deregister_qemu_wrapper() {
 	ebegin "Unregistering qemu-wrapper binaries"
 	echo '-1' > /proc/sys/fs/binfmt_misc/qemu-mips64el
-	echo '-1' > /proc/sys/fs/binfmt_misc/qemu-mipsn32el
 	eend 0
 }
 
@@ -60,8 +56,6 @@ install_qemu_wrapper() {
 	mkdir -pv ${ROOT}/usr/local/bin
 	[ ! -x "${ROOT}/usr/local/bin/qemu-wrapper-n64" ] && \
 		install /usr/local/bin/qemu-wrapper-n64 ${ROOT}/usr/local/bin/
-	[ ! -x "${ROOT}/usr/local/bin/qemu-wrapper-n32" ] && \
-		install /usr/local/bin/qemu-wrapper-n32 ${ROOT}/usr/local/bin/
 	eend 0
 }
 
@@ -69,8 +63,6 @@ register_qemu() {
 	ebegin "Registering qemu binaries  (flags: OC)"
 	[ -f "/proc/sys/fs/binfmt_misc/qemu-mips64el" ] \
 		&& echo '-1' > /proc/sys/fs/binfmt_misc/qemu-mips64el
-	[ -f "/proc/sys/fs/binfmt_misc/qemu-mipsn32el" ] \
-		&& echo '-1' > /proc/sys/fs/binfmt_misc/qemu-mipsn32el
 	/etc/init.d/qemu-binfmt start
 }
 
@@ -81,7 +73,7 @@ deregister_qemu() {
 
 install_qemu_binary() {
 	ebegin "Confirm qemu binaries are installed"
-	for QEMU_TARGET in mips64el mipsn32el mipsel; do
+	for QEMU_TARGET in mips64el; do
 		if [ ! -x "${ROOT}/usr/bin/qemu-${QEMU_TARGET}" ]; then
 			install /usr/bin/qemu-${QEMU_TARGET} ${ROOT}/usr/bin
 		fi
